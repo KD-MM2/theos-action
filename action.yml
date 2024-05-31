@@ -73,20 +73,7 @@ runs:
           rm -r swift-5.3.2-RELEASE-ubuntu20.04.tar.zst $TMP_DL
           curl -L https://github.com/ProcursusTeam/ldid/releases/latest/download/ldid_linux_x86_64 -o $THEOS/toolchain/linux/iphone/bin/ldid
           rm -Rf $TMP_DL
-        fi
-
-    - name: Get SDKs
-      shell: bash
-      run: |
-        if [[ "$(ls ${{ inputs.theos-dir }}/sdks)" ]]; then
-          echo "Theos SDKs already cached, skipping..."
-        else
-          cd ${{ inputs.theos-dir }}/sdks
-          wget --no-verbose ${{ inputs.theos-sdks }}/archive/${{ inputs.theos-sdks-branch }}.zip
-          TMP=$(mktemp -d)
-          7z x ${{ inputs.theos-sdks-branch }}.zip -o$TMP
-          mv $TMP/*-${{ inputs.theos-sdks-branch }}/*.sdk $THEOS/sdks
-          rm -r ${{ inputs.theos-sdks-branch }}.zip $TMP
+          git clone https://github.com/theos/sdks.git $THEOS/sdks
         fi
 
     - name: Enable Orion
