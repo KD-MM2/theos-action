@@ -69,7 +69,7 @@ runs:
           curl -LO https://github.com/CRKatri/llvm-project/releases/download/swift-5.3.2-RELEASE/swift-5.3.2-RELEASE-ubuntu20.04.tar.zst
           tar -xf swift-5.3.2-RELEASE-ubuntu20.04.tar.zst -C $TMP_DL
           mkdir -p $THEOS/toolchain/linux/iphone $THEOS/toolchain/swift
-          mv $TMP/swift-5.3.2-RELEASE-ubuntu20.04/* $THEOS/toolchain/linux/iphone/
+          mv $TMP_DL/swift-5.3.2-RELEASE-ubuntu20.04/* $THEOS/toolchain/linux/iphone/
           rm -r swift-5.3.2-RELEASE-ubuntu20.04.tar.zst $TMP_DL
           curl -L https://github.com/ProcursusTeam/ldid/releases/latest/download/ldid_linux_x86_64 -o $THEOS/toolchain/linux/iphone/bin/ldid
           rm -Rf $TMP_DL
