@@ -73,6 +73,9 @@ runs:
           rm -r swift-5.3.2-RELEASE-ubuntu20.04.tar.zst $TMP_DL
           curl -L https://github.com/ProcursusTeam/ldid/releases/latest/download/ldid_linux_x86_64 -o $THEOS/toolchain/linux/iphone/bin/ldid
           rm -Rf $TMP_DL
+          if [ -d "$THEOS/sdks" ]; then
+            rm -Rf $THEOS/sdks
+          fi
           git clone https://github.com/theos/sdks.git $THEOS/sdks
         fi
 
