@@ -42,7 +42,7 @@ runs:
       if: runner.os == 'Linux'
       run: |
         sudo apt update
-        sudo apt install -y bash curl build-essential fakeroot rsync perl zip git libxml2 libz3-dev zstd libtinfo5 libplist-utils
+        sudo apt install -y bash curl build-essential fakeroot rsync perl zip git libxml2 libz3-dev zstd libtinfo5 libplist-utils > /dev/null
 
     - name: Setup environment
       shell: bash
